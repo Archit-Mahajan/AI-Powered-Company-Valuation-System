@@ -1,0 +1,88 @@
+{
+  "ticker": "MMYT",
+  "country": "IN",
+  "rf_used": 0.0436,
+  "beta_used": 1.0,
+  "market_premium_used": 0.0364,
+  "tax_rate_used": 0.25,
+  "capex_pct_rev0": 0.04,
+  "da_pct_rev": 0.04,
+  "dnwc_pct_rev": 0.01,
+  "terminal_growth_base": 0.03,
+  "net_debt": 0.0,
+  "scenarios": {
+    "Bear": {
+      "inputs": {
+        "revenue0": 1000000000.0,
+        "ebitda_margin0": 0.13,
+        "g0": 0.06999999999999999,
+        "g_terminal": 0.0275,
+        "wacc": 0.08531,
+        "tax_rate": 0.25,
+        "capex_pct_rev0": 0.04,
+        "dnwc_pct_rev": 0.01,
+        "da_pct_rev": 0.04,
+        "years": 5,
+        "target_margin": 0.2
+      },
+      "enterprise_value": 1658020975.7339425
+    },
+    "Base": {
+      "inputs": {
+        "revenue0": 1000000000.0,
+        "ebitda_margin0": 0.15,
+        "g0": 0.1,
+        "g_terminal": 0.03,
+        "wacc": 0.07031,
+        "tax_rate": 0.25,
+        "capex_pct_rev0": 0.04,
+        "dnwc_pct_rev": 0.01,
+        "da_pct_rev": 0.04,
+        "years": 5,
+        "target_margin": 0.2
+      },
+      "enterprise_value": 2806487591.7556005
+    },
+    "Bull": {
+      "inputs": {
+        "revenue0": 1000000000.0,
+        "ebitda_margin0": 0.16499999999999998,
+        "g0": 0.13,
+        "g_terminal": 0.0325,
+        "wacc": 0.060309999999999996,
+        "tax_rate": 0.25,
+        "capex_pct_rev0": 0.04,
+        "dnwc_pct_rev": 0.01,
+        "da_pct_rev": 0.04,
+        "years": 5,
+        "target_margin": 0.2
+      },
+      "enterprise_value": 4638371810.987953
+    }
+  },
+  "weights": {
+    "Bear": 0.25,
+    "Base": 0.5,
+    "Bull": 0.25
+  },
+  "ev_weighted": 2977341992.5582743,
+  "equity_value_weighted": 2977341992.5582743,
+  "market_cap_observed": 4509986304.0,
+  "implied_upside_vs_mcap": -0.339833473570062,
+  "confidence_score": 0.34999999999999987,
+  "fallbacks_used": [
+    "revenue0=fallback",
+    "ebitda_margin=fallback",
+    "capex% from prior",
+    "D&A% from prior",
+    "net_debt\u22480",
+    "no analyst hint"
+  ],
+  "profile": {
+    "country": "India",
+    "currency": "USD",
+    "marketCap": 4509986304,
+    "sharesOutstanding": 89571502,
+    "companyName": "MakeMyTrip Limited"
+  }
+}

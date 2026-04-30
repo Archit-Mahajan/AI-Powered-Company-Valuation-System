@@ -1,0 +1,9 @@
+Company,Similarity_Score,Type,Sector,Industry,Location,Is_Direct_Competitor
+EaseMyTrip,0.24189431782256374,Public,Consumer Cyclical,Travel Services,India,True
+Kayak,0.1852576673214884,Public,Basic Materials,Chemicals,Japan,True
+Ixigo,0.1709798899633529,Public,Consumer Cyclical,Travel Services,India,True
+Yatra,0.1486739768046951,Public,Consumer Cyclical,Travel Services,India,True
+Tripadvisor,0.1291841757854324,Public,Consumer Cyclical,Travel Services,United States,True
+Expedia,0.0941490161209696,Public,Consumer Cyclical,Travel Services,United States,True
+Airbnb,1.0400968177664414e-05,Public,Consumer Cyclical,Travel Services,United States,True
+Trivago,0.0,Public,Communication Services,Internet Content & Information,Germany,True
