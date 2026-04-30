@@ -51,16 +51,11 @@ def run_dcf():
             script_dir = os.path.dirname(os.path.abspath(__file__))
             os.chdir(script_dir)
             
-            # Set up the environment with API keys
+            # Set up the environment — API keys are read from the current process environment
             env = os.environ.copy()
-            env['FRED_API_KEY'] = 'ef818507901a73b2dc8cb3b1fe3e3184'
-            env['FMP_API_KEY'] = 'UrGqphhSmbOap5fdmRaHtU8Nt83V5US6'
-            env['TIINGO_API_KEY'] = '2c7f5a1d68183990481a93d1a880010da411a873'
-            env['ALPHAVANTAGE_API_KEY'] = 'AOVG7UW53408H5IC'
-            env['FINNHUB_API_KEY'] = 'd2dp2k1r01qjrul4cnk0d2dp2k1r01qjrul4cnk'
             
-            # Use the specific Python interpreter that has yfinance installed
-            python_path = '/Users/architmahajan/.pyenv/versions/3.10.12/bin/python3.10'
+            # Use the current Python interpreter
+            python_path = sys.executable
             
             # Run DCF analysis as a subprocess
             cmd = [
@@ -68,11 +63,11 @@ def run_dcf():
                 '--ticker', ticker,
                 '--indir', './out',
                 '--outdir', './out',
-                '--fred_key', env['FRED_API_KEY'],
-                '--fmp_key', env['FMP_API_KEY'],
-                '--tiingo_key', env['TIINGO_API_KEY'],
-                '--alphav_key', env['ALPHAVANTAGE_API_KEY'],
-                '--finnhub_key', env['FINNHUB_API_KEY']
+                '--fred_key', env.get('FRED_API_KEY', ''),
+                '--fmp_key', env.get('FMP_API_KEY', ''),
+                '--tiingo_key', env.get('TIINGO_API_KEY', ''),
+                '--alphav_key', env.get('ALPHAVANTAGE_API_KEY', ''),
+                '--finnhub_key', env.get('FINNHUB_API_KEY', '')
             ]
             
             print(f"Running DCF command: {' '.join(cmd)}")
@@ -167,8 +162,11 @@ def run_enhanced():
             # Change to the script directory to ensure proper file paths
             script_dir = os.path.dirname(os.path.abspath(__file__))
             os.chdir(script_dir)
-            # Create analyzer instance
-            analyzer = EnhancedMakeMyTripForecaster("AIzaSyCT5fJO0UlpLv-HuYp7JFlC2U1XmGGMK4A")
+            # Create analyzer instance using API key from environment
+            gemini_key = os.getenv("GEMINI_API_KEY")
+            if not gemini_key:
+                raise EnvironmentError("GEMINI_API_KEY environment variable is not set. Please configure it in your .env file.")
+            analyzer = EnhancedMakeMyTripForecaster(gemini_key)
             success = analyzer.run_complete_enhanced_analysis()
             if success:
                 # Load results

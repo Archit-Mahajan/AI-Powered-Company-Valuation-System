@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans, HDBSCAN
@@ -33,8 +34,10 @@ lemmatizer = WordNetLemmatizer()
 # Set plotting style
 sns.set(style="whitegrid", palette="muted", font_scale=1.2)
 plt.rcParams["figure.figsize"] = (12, 8)
-# Initialize Gemini API
-API_KEY = "AIzaSyBVk9_fEJucbnbOEQwg2DkkGMJgCTksc0c"
+# Initialize Gemini API from environment variable
+API_KEY = os.getenv("GEMINI_API_KEY")
+if not API_KEY:
+    raise EnvironmentError("GEMINI_API_KEY environment variable is not set. Please configure it in your .env file.")
 genai.configure(api_key=API_KEY)
 # Try different model names in order of preference
 model_names = [
