@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 import requests
@@ -1649,8 +1650,9 @@ def main():
     print("⚠️  Transparent About Synthetic Data Limitations")
     print("")
 
-    # IMPORTANT: Replace with your actual Gemini API key
-    gemini_api_key = "AIzaSyAKIDUEo5IdkNTUh1eMf7etIQag4MuFogI"
+    gemini_api_key = os.getenv("GEMINI_API_KEY")
+    if not gemini_api_key:
+        raise EnvironmentError("GEMINI_API_KEY environment variable is not set. Please configure it in your .env file.")
 
     # Initialize enhanced analyzer
     analyzer = EnhancedMakeMyTripForecaster(gemini_api_key)

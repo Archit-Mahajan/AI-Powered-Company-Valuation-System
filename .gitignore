@@ -1,0 +1,16 @@
+# Environment / secrets — never commit these
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Generated output files
+out/
+*.png
+*.csv
+*.txt
+*.html
+!.env.example
